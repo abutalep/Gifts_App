@@ -13,6 +13,6 @@ class BuildDot extends StatelessWidget {
         color: isActive ? Colors.white : Colors.white54,
         shape: BoxShape.circle,
       ),
-    );;
+    );
   }
 }

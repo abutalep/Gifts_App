@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "72859624343",
+    "project_id": "gifts-app-f22ee",
+    "storage_bucket": "gifts-app-f22ee.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72859624343:android:034e59ba365ecd69f71ad2",
+        "android_client_info": {
+          "package_name": "com.example.gifts_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVKSLTnU6f0NFvpRwsedzJt_9tm5r3q_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
