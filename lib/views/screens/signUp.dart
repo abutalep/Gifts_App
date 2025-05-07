@@ -83,6 +83,11 @@ class _SignUpState extends State<SignUp> {
                     labelText: "Email",
                     hintText: "Enter your email",
                     obscureText: false,
+                    border: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.white,
+          ),
+        ),
                   ),
                   const SizedBox(
                     height: 10,
@@ -95,6 +100,11 @@ class _SignUpState extends State<SignUp> {
                     hintText: "Create password",
                     obscureText: true,
                     suffixIcon: true,
+                    border: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.white,
+          ),
+        ),
                   ),
                   const SizedBox(
                     height: 10,
@@ -107,6 +117,11 @@ class _SignUpState extends State<SignUp> {
                     hintText: "Rewrite password",
                     obscureText: true,
                     suffixIcon: true,
+                    border: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.white,
+          ),
+        ),
                   ),
                   const SizedBox(
                     height: 20,

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gifts_app/views/functions/showSnackBarFunction.dart';
-import 'package:gifts_app/views/screens/homeTest.dart';
+import 'package:gifts_app/views/screens/homePage.dart';
 import 'package:gifts_app/views/screens/signUp.dart';
 import 'package:gifts_app/views/widgets/custom_button.dart';
 import 'package:gifts_app/views/widgets/custom_clipPath.dart';
@@ -90,6 +90,11 @@ void dispose() {
                       labelText: "Email",
                       hintText: "Enter your email",
                       obscureText: false,
+                      border: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.white,
+          ),
+        ),
                     ),
                     const SizedBox(
                       height: 14,
@@ -103,6 +108,11 @@ void dispose() {
                       hintText: "Enter your password",
                       obscureText: true,
                       suffixIcon: true,
+                      border: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.white,
+          ),
+        ),
                     ),
                     const SizedBox(
                       height: 20,
@@ -120,7 +130,7 @@ void dispose() {
                             email: email!,
                             password: password!,
                           );
-                          Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>HomeTest()));
+                          Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>HomePage()));
                         } on FirebaseAuthException catch (e) {
                           if (e.code == 'invalid-credential') {
                             showSnackBar_Function(context,

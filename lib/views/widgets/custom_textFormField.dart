@@ -5,14 +5,20 @@ class CustomTextFormField extends StatefulWidget {
   bool suffixIcon;
   Function(String) onChanged;
   bool obscureText;
+  int maxLines;
+  InputBorder border;
+  Color color;
   final TextEditingController? controller;
   CustomTextFormField(
       {required this.labelText,
       required this.hintText,
       required this.onChanged,
-      required this.obscureText,
+      required this.border,
+       this.obscureText=false,
       this.controller,
       this.suffixIcon=false,
+      this.maxLines=1,
+      this.color=Colors.white,
       super.key});
 
   @override
@@ -21,11 +27,17 @@ class CustomTextFormField extends StatefulWidget {
 
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
   late bool _obscureText;
+  late int maxLines;
+  late InputBorder border;
+  late Color color;
 
   @override
   void initState() {
     super.initState();
     _obscureText = widget.obscureText;
+    maxLines=widget.maxLines;
+    border=widget.border;
+    color=widget.color;
   }
 
   void _toggleVisibility() {
@@ -37,10 +49,10 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      
+      maxLines: maxLines,
       controller: widget.controller,
       obscureText: _obscureText,
-      style: const TextStyle(color: Colors.white),
+      style:  TextStyle(color:color),
       validator: (data) {
         if (data!.isEmpty) {
           return "Field is required";
@@ -51,33 +63,21 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       onChanged: widget.onChanged,
       decoration: InputDecoration(
         labelText: widget.labelText,
-        labelStyle: const TextStyle(
-          color: Colors.white,
+        labelStyle:  TextStyle(
+          color: color,
         ),
         hintText: widget.hintText,
-        hintStyle: const TextStyle(
-          color: Colors.white,
+        hintStyle:  TextStyle(
+          color: color,
         ),
-        enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.white,
-          ),
-        ),
-        border: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.white,
-          ),
-        ),
-        focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.white,
-          ),
-        ),
+        enabledBorder: border,
+        border: border,
+        focusedBorder:border,
          suffixIcon: widget.suffixIcon
             ? IconButton(
                 icon: Icon(
                   _obscureText ? Icons.visibility_off : Icons.visibility,
-                  color: Colors.white,
+                  color: color,
                 ),
                 onPressed: _toggleVisibility,
               )
