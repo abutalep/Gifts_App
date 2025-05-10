@@ -74,7 +74,7 @@ class _CheckoutState extends State<Checkout> {
               if (!_formKey.currentState!.validate()) {
                 return;
               }
-              _formKey.currentState!.save(); // Save the form values before proceeding
+              _formKey.currentState!.save(); 
             }
             if (_currentStep < 2) {
               setState(() => _currentStep += 1);
