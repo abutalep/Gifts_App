@@ -67,8 +67,6 @@ class _ProductDetailsState extends State<ProductDetails> {
 
         backgroundColor: const Color(0xFF9C27B0),
         iconTheme: const IconThemeData(color: Colors.white),
-
-
       ),
       body: SingleChildScrollView(
         child: Column(
