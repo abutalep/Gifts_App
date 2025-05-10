@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:gifts_app/firebase_options.dart';
 import 'package:gifts_app/views/screens/splashScreen.dart';
+import 'package:gifts_app/views/screens/ShoppingCart.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,8 +16,14 @@ class Gifts_App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(), 
+      title: 'Gifts App',
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+      ),
+      routes: {
+        '/cart': (context) => ShoppingCart(),
+      },
+      home: const SplashScreen(),
     );
   }
 }
