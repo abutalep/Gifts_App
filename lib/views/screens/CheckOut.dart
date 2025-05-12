@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gifts_app/views/screens/details_user.dart';
+import 'package:gifts_app/views/screens/order_details.dart';
+import 'package:gifts_app/views/screens/payment.dart';
+
 
 class Checkout extends StatefulWidget {
-  const Checkout({super.key});
+  final double totalPrice;
+  const Checkout({super.key, required this.totalPrice});
 
   @override
   State<Checkout> createState() => _CheckoutState();
@@ -215,69 +220,19 @@ class _CheckoutState extends State<Checkout> {
             ),
           ],
         ),
+
       ),
+
     );
   }
 
   void _placeOrder() {
-    showDialog(
-      context: context,
-      builder: (context) => Dialog(
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16)),
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                Icons.check_circle,
-                color: _primaryColor,
-                size: 60,
-              ),
-              const SizedBox(height: 16),
-              const Text(
-                'Order Completed Successfully',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                  'Order Number: #${DateTime.now().millisecondsSinceEpoch.toString().substring(6)}',
-                  style: const TextStyle(fontSize: 16)),
-              const SizedBox(height: 16),
-              Text(
-                'We will contact you on: $_phoneNumber',
-                style: const TextStyle(fontSize: 14),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 24),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: _primaryColor,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text(
-                    'Pay',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+    DetailsUser.savedPhone = _phoneNumber;
+    OrderDetails.savedPhone = _phoneNumber;
+    OrderDetails.savedAddress = _address;
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => Payment(totalPrice: widget.totalPrice,)),
     );
   }
+
 }

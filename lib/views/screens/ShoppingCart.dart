@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gifts_app/cart_manager.dart';
 import 'package:gifts_app/views/screens/CheckOut.dart';
 
+
 class ShoppingCart extends StatelessWidget {
+
   const ShoppingCart({super.key});
 
   @override
@@ -220,10 +222,15 @@ class ShoppingCart extends StatelessWidget {
                             onPressed: items.isEmpty
                                 ? null
                                 : () {
+
+
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Checkout()),
+                                MaterialPageRoute(
+                                  builder: (context) => Checkout(totalPrice: totalPrice),
+                                ),
                               );
+
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xFF9C27B0),

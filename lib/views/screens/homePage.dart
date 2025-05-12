@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gifts_app/views/functions/logOut.dart';
+import 'package:gifts_app/views/screens/profile_page.dart';
 import 'package:gifts_app/views/widgets/home_appBar.dart';
 import 'package:gifts_app/views/widgets/home_body.dart';
 import 'package:gifts_app/views/widgets/home_bottomNavigationBar.dart';
@@ -17,7 +18,9 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = [
     HomeBody(),
+
     const ShoppingCart(),
+    const ProfilePage(),
     const Center(child: Text('profile page')),
   ];
 
