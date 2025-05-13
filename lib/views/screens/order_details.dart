@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+String _orderNumber = DateTime.now().millisecondsSinceEpoch.toString().substring(6);
+
 class OrderDetails extends StatefulWidget {
   static String savedAddress = '';
   static String savedPhone = '';
@@ -12,7 +14,7 @@ class OrderDetails extends StatefulWidget {
 }
 
 class _OrderDetailsState extends State<OrderDetails> {
-  double orderProgress = 0.5; //50%
+  double orderProgress = 0.5;
 
   @override
   Widget build(BuildContext context) {
@@ -47,24 +49,20 @@ class _OrderDetailsState extends State<OrderDetails> {
                 Text(
                     'Order Number',
                     style: const TextStyle(fontSize: 18 , fontWeight: FontWeight.bold)),
-                Text(' #${DateTime.now().millisecondsSinceEpoch.toString().substring(6)}'
-                  ,style: const TextStyle(fontSize: 18),),
+                Text(' $_orderNumber',
+                  style: const TextStyle(fontSize: 18),),
               ],
             ),
             const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Transaction Date',
-                    style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
-                Text('25/5/2025'
-                  ,style: const TextStyle(fontSize: 18),),
+
               ],),
-            SizedBox(height: 24),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Deliver Address',
+                Text('Delivery Address',
                     style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
 
                 Text(OrderDetails.savedAddress, style: const TextStyle(fontSize: 18)),
