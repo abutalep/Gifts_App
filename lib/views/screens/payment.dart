@@ -42,7 +42,7 @@ class _PaymentState extends State<Payment> {
             SizedBox(height: 20),
 
             // Visa
-            buildOption("Visa xxxx" ,1 ),
+            buildOption("Visa xxxx" ,icon: Icon(Icons.credit_card, color: Colors.blue),1 ),
             SizedBox(height: 10),
 
             // Promo Code
