@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:gifts_app/views/screens/homePage.dart';
 
@@ -6,11 +8,11 @@ class OrderTracking extends StatefulWidget {
   final String? orderNumber;
   final String trackingNumber;
   const OrderTracking({
-    Key? key,
+    super.key,
     required this.deliveryAddress,
     this.orderNumber,
     required this.trackingNumber,
-  }) : super(key: key);
+  });
 
   @override
   State<OrderTracking> createState() => _OrderTrackingState();
@@ -59,6 +61,7 @@ class _OrderTrackingState extends State<OrderTracking> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: const Color(0xff763498),
         centerTitle: true,

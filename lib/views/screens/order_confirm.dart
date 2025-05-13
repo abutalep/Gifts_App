@@ -12,8 +12,8 @@ class OrderConfirm extends StatefulWidget {
 class _OrderConfirmState extends State<OrderConfirm> {
   String phone = '';
   final Color _primaryColor = const Color(0xFF9C27B0);
-  String _orderNumber = DateTime.now().millisecondsSinceEpoch.toString().substring(6);
-  String _trackingNumber = 'TRK${DateTime.now().millisecondsSinceEpoch.toString().substring(8)}';
+  final String _orderNumber = DateTime.now().millisecondsSinceEpoch.toString().substring(6);
+  final String _trackingNumber = 'TRK${DateTime.now().millisecondsSinceEpoch.toString().substring(8)}';
 
   @override
   void initState() {
@@ -24,11 +24,6 @@ class _OrderConfirmState extends State<OrderConfirm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        iconTheme: IconThemeData(color: _primaryColor),
-      ),
       body: Container(
         padding: EdgeInsets.only(top: 200),
         child: Column(

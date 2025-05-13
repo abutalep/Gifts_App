@@ -56,8 +56,6 @@ class ProfilePage extends StatelessWidget {
             ),
 
             const SizedBox(height: 10),
-            ListTile(title: const Text('FAQ')),
-            ListTile(title: const Text('Contact us')),
           ],
         ),
       ),

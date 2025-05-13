@@ -1,10 +1,12 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget{
   final void Function() onPressedCart;
   final void Function(String) onMenuSelected;
 
-   HomeAppBar({super.key,required this.onMenuSelected,required this.onPressedCart});
+   const HomeAppBar({super.key,required this.onMenuSelected,required this.onPressedCart});
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -26,7 +28,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget{
               ],
             ).then((value) {
               if (value != null) {
-                onMenuSelected?.call(value);
+                onMenuSelected.call(value);
               }
             });
             },
@@ -67,6 +69,6 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget{
   }
   
   @override
-  // TODO: implement preferredSize
+  
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

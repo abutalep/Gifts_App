@@ -1,7 +1,9 @@
+// ignore_for_file: file_names, deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:gifts_app/models/gift_model.dart';
 import 'package:gifts_app/cart_manager.dart';
-import 'package:gifts_app/views/screens/ShoppingCart.dart';
+import 'package:gifts_app/views/widgets/ShoppingCart.dart';
 
 class ProductDetails extends StatefulWidget {
   final Gift model;

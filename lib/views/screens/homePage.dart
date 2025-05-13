@@ -1,10 +1,12 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:gifts_app/views/functions/logOut.dart';
-import 'package:gifts_app/views/screens/profile_page.dart';
+import 'package:gifts_app/views/widgets/profile_page.dart';
 import 'package:gifts_app/views/widgets/home_appBar.dart';
 import 'package:gifts_app/views/widgets/home_body.dart';
 import 'package:gifts_app/views/widgets/home_bottomNavigationBar.dart';
-import 'package:gifts_app/views/screens/ShoppingCart.dart';
+import 'package:gifts_app/views/widgets/ShoppingCart.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

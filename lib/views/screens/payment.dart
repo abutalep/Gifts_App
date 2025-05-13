@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gifts_app/cart_manager.dart';
 import 'package:gifts_app/views/screens/order_confirm.dart';
 
 class Payment extends StatefulWidget {
@@ -173,6 +174,30 @@ class _PaymentState extends State<Payment> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    if(_type==4)
+                    Text(
+                      'Pay the money to : 0103255555555',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                    else if(_type==5)
+                    Text(
+                      'Pay the money to : 0113255555555',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                    else if(_type==6)
+                    Text(
+                      'Pay the money to : 0123255555555',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     Text(
                       'Enter Wallet Number:',
                       style: TextStyle(
@@ -236,11 +261,8 @@ class _PaymentState extends State<Payment> {
                   return;
                 }
 
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => OrderConfirm(),
-                  ),
-                );
+                cartManager.items.value=[];
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>OrderConfirm()));
               },
               child: Container(
                 width: double.infinity,

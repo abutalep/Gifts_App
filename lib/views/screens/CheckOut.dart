@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:gifts_app/views/screens/details_user.dart';
 import 'package:gifts_app/views/screens/order_details.dart';

@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, file_names
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gifts_app/views/screens/signIn.dart';

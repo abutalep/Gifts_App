@@ -1,7 +1,9 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 class BuildDot extends StatelessWidget {
   final bool isActive;
-   BuildDot({super.key, this.isActive = false});
+   const BuildDot({super.key, this.isActive = false});
 
   @override
   Widget build(BuildContext context) {

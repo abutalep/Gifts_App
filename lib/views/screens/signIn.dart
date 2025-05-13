@@ -1,3 +1,4 @@
+// ignore_for_file: file_names, use_build_context_synchronously, unnecessary_string_interpolations
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gifts_app/views/functions/showSnackBarFunction.dart';
@@ -9,7 +10,7 @@ import 'package:gifts_app/views/widgets/custom_textFormField.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class SignIn extends StatefulWidget {
-  SignIn({super.key});
+  const SignIn({super.key});
 
   @override
   State<SignIn> createState() => _SignInState();
@@ -24,7 +25,8 @@ String? email, password;
 
   bool isLoading = false;
 GlobalKey<FormState> formKey = GlobalKey();
-void dispose() {
+@override
+  void dispose() {
   emailController.dispose();
   passwordController.dispose();
   super.dispose();
@@ -38,6 +40,7 @@ void dispose() {
         backgroundColor: Colors.white,
         body:Stack(
           children: [
+            // ignore: deprecated_member_use
             CustomClipPath(color: Color(0xff944BBB).withOpacity(.8),height: 624,),
             CustomClipPath(color: Color(0xff944BBB),height: 600,),
             Padding(
@@ -124,6 +127,7 @@ void dispose() {
                         isLoading = true;
                         setState(() {});
                         try {
+                          // ignore: unused_local_variable
                           final UserCredential credential = await FirebaseAuth
                               .instance
                               .signInWithEmailAndPassword(
@@ -136,6 +140,7 @@ void dispose() {
                             showSnackBar_Function(context,
                                 text: "Wrong email or password.");
                           } else {
+
                             showSnackBar_Function(context,
                                 text: "${e.toString()}");
                           }

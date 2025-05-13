@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable, deprecated_member_use, file_names, use_build_context_synchronously, unnecessary_string_interpolations
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gifts_app/views/functions/showDialogFunction.dart';
@@ -9,7 +11,7 @@ import 'package:gifts_app/views/widgets/custom_textFormField.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class SignUp extends StatefulWidget {
-  SignUp({super.key});
+  const SignUp({super.key});
 
   @override
   State<SignUp> createState() => _SignUpState();

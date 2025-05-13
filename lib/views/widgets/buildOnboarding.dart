@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:gifts_app/models/onboarding_models.dart';
 
@@ -6,7 +8,7 @@ class BuildOnboarding extends StatelessWidget {
   final String title;
   final String subtitle;
 
-  BuildOnboarding({
+  const BuildOnboarding({
     required this.image,
     required this.title,
     required this.subtitle,

@@ -1,7 +1,8 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:gifts_app/cart_manager.dart';
 import 'package:gifts_app/views/screens/CheckOut.dart';
-import 'package:gifts_app/views/screens/homePage.dart';
 
 
 class ShoppingCart extends StatelessWidget {
@@ -26,17 +27,8 @@ class ShoppingCart extends StatelessWidget {
               ),
             ),
             centerTitle: true,
-            backgroundColor: const Color(0xFF9C27B0),
+            backgroundColor: const Color(0xff944BBB),
             iconTheme: const IconThemeData(color: Colors.white),
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomePage()),
-                );
-              },
-            ),
           ),
           body: Padding(
             padding: const EdgeInsets.all(16.0),
@@ -237,7 +229,7 @@ class ShoppingCart extends StatelessWidget {
 
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF9C27B0),
+                              backgroundColor: const Color(0xff944BBB),
                               padding: const EdgeInsets.symmetric(vertical: 16),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),

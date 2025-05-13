@@ -1,9 +1,13 @@
+// ignore_for_file: file_names, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:gifts_app/views/screens/signIn.dart';
 import 'package:gifts_app/views/widgets/buildDot.dart';
 import 'package:gifts_app/views/widgets/buildOnboarding.dart';
 
 class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({super.key});
+
   @override
   _OnboardingScreenState createState() => _OnboardingScreenState();
 }
@@ -50,12 +54,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               BuildOnboarding(
                 image: "assets/images/OnboardingOne.png",
                 title: "A Romantic\nGift",
-                subtitle: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                subtitle: "Moments fade, but the right gift lasts forever We help you transform ordinary occasions into extraordinary memories with handpicked gifts that capture the heart and celebrate every special connection.",
               ),
               BuildOnboarding(
                 image: "assets/images/OnboardingTwo.png",
                 title: "Expressing\nFeeling",
-                subtitle: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                subtitle: "Memories in the Making Every gift in our collection is vetted for its 'wow factor' - because we believe gifting should create moments worth remembering forever.",
                 
               ),
               BuildOnboarding(

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gifts_app/views/functions/showSnackBarFunction.dart';
 
+// ignore: must_be_immutable
 class HelpSupport extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey();
   HelpSupport({super.key});
 
   @override
@@ -87,28 +90,45 @@ class HelpSupport extends StatelessWidget {
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 5),
-            TextField(
-              controller: nameController,
-              decoration: InputDecoration(hintText: 'Your message'),
-            ),
-            SizedBox(height: 10),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xff944BBB),
-                minimumSize: Size(double.infinity, 40),
-              ),
-              onPressed: () {
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: const [
-                  Text(
-                    'Send to Store',
-                    style: TextStyle(color: Colors.white),
+            Form(
+              key: formKey,
+              child: Column(
+                children: [
+                  TextField(
+                    controller: nameController,
+                    decoration: InputDecoration(hintText: 'Your message'),
                   ),
-                  SizedBox(width: 8),
-                  Icon(Icons.send, color: Colors.white),
+                  SizedBox(height: 10),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xff944BBB),
+                      minimumSize: Size(double.infinity, 40),
+                    ),
+                    onPressed: () {
+                      final text = nameController.text.trim();
+                          if (formKey.currentState!.validate()) {
+                            if (text.isNotEmpty) {
+                              showSnackBar_Function(context,
+                                  text: 'Request sent to the store!');
+                              nameController.clear();
+                            } else {
+                              showSnackBar_Function(context, text: 'Message is empty !');
+                            }
+                          }
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: const [
+                        Text(
+                          'Send to Store',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(width: 8),
+                        Icon(Icons.send, color: Colors.white),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
