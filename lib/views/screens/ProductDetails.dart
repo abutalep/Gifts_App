@@ -62,8 +62,10 @@ class _ProductDetailsState extends State<ProductDetails> {
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: const Text('Product Details' ,
-            style: TextStyle(color: Colors.white), ),
+        title: const Text(
+          'Product Details',
+          style: TextStyle(color: Colors.white),
+        ),
 
         backgroundColor: const Color(0xFF9C27B0),
         iconTheme: const IconThemeData(color: Colors.white),
@@ -76,9 +78,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 Container(
                   height: 350,
                   width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
-                  ),
+                  decoration: BoxDecoration(color: Colors.grey.shade200),
                   child: Image.network(
                     widget.model.imageUrl,
                     fit: BoxFit.cover,
@@ -94,7 +94,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: const Color(0xFF9C27B0),
-                      borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+                      borderRadius: const BorderRadius.vertical(
+                        top: Radius.circular(20),
+                      ),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,20 +135,35 @@ class _ProductDetailsState extends State<ProductDetails> {
                               child: Row(
                                 children: [
                                   IconButton(
-                                    icon: const Icon(Icons.remove, color: Colors.white),
+                                    icon: const Icon(
+                                      Icons.remove,
+                                      color: Colors.white,
+                                    ),
                                     onPressed: _decrementQuantity,
                                     padding: EdgeInsets.zero,
-                                    constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+                                    constraints: const BoxConstraints(
+                                      minWidth: 32,
+                                      minHeight: 32,
+                                    ),
                                   ),
                                   Text(
                                     '$_quantity',
-                                    style: const TextStyle(fontSize: 16, color: Colors.white),
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                   IconButton(
-                                    icon: const Icon(Icons.add, color: Colors.white),
+                                    icon: const Icon(
+                                      Icons.add,
+                                      color: Colors.white,
+                                    ),
                                     onPressed: _incrementQuantity,
                                     padding: EdgeInsets.zero,
-                                    constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+                                    constraints: const BoxConstraints(
+                                      minWidth: 32,
+                                      minHeight: 32,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -166,32 +183,33 @@ class _ProductDetailsState extends State<ProductDetails> {
                 children: [
                   const Text(
                     'Details',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 10),
                   Text(
                     widget.model.description,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      height: 1.5,
-                    ),
+                    style: const TextStyle(fontSize: 16, height: 1.5),
                   ),
                   const SizedBox(height: 20),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      _buildAttributeBox(
-                        context,
-                        title: 'Category:',
-                        value: widget.model.category,
+                      Expanded(
+                        child: _buildAttributeBox(
+                          context,
+                          title: 'Category:',
+                          value: widget.model.category,
+                        ),
                       ),
-                      _buildAttributeBox(
-                        context,
-                        title: 'Price',
-                        value: '${widget.model.price} EGP',
+
+                      const SizedBox(width: 8),
+
+                      Expanded(
+                        child: _buildAttributeBox(
+                          context,
+                          title: 'Price:',
+                          value: '${widget.model.price} EGP',
+                        ),
                       ),
                     ],
                   ),
@@ -206,12 +224,18 @@ class _ProductDetailsState extends State<ProductDetails> {
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
-                          side: const BorderSide(color: Color(0xFF9C27B0), width: 2),
+                          side: const BorderSide(
+                            color: Color(0xFF9C27B0),
+                            width: 2,
+                          ),
                         ),
                       ),
                       child: const Text(
                         'Add to Cart',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -221,15 +245,24 @@ class _ProductDetailsState extends State<ProductDetails> {
                       onPressed: () => _continueShopping(context),
                       style: OutlinedButton.styleFrom(
                         foregroundColor: const Color(0xFF9C27B0),
-                        side: const BorderSide(color: Color(0xFF9C27B0), width: 2),
-                        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+                        side: const BorderSide(
+                          color: Color(0xFF9C27B0),
+                          width: 2,
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 16,
+                          horizontal: 24,
+                        ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                       child: const Text(
                         'CONTINUE SHOPPING',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -249,7 +282,6 @@ class _ProductDetailsState extends State<ProductDetails> {
       }) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-      width: MediaQuery.of(context).size.width * 0.4,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: Colors.grey.shade600, width: 1.5),
@@ -265,15 +297,20 @@ class _ProductDetailsState extends State<ProductDetails> {
               fontWeight: FontWeight.w600,
             ),
           ),
-          Text(
-            value ?? '',
-            style: const TextStyle(
-              fontSize: 14,
-              color: Colors.black87,
-              fontWeight: FontWeight.w600,
+          Expanded(
+            child: Text(
+              value ?? '',
+              textAlign: TextAlign.end,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontSize: 11,
+                color: Colors.black87,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ],
       ),
     );
-  } }
+  }
+}

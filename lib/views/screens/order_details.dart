@@ -38,17 +38,17 @@ class _OrderDetailsState extends State<OrderDetails> {
               minHeight: 8,
             ),
             SizedBox(height: 8),
-            Text('Estimated delivery: 4 days'),
+            Text('Your order is currently on the way to you.'),
             SizedBox(height: 24),
 
-          Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                     'Order Number',
                     style: const TextStyle(fontSize: 18 , fontWeight: FontWeight.bold)),
                 Text(' #${DateTime.now().millisecondsSinceEpoch.toString().substring(6)}'
-                   ,style: const TextStyle(fontSize: 18),),
+                  ,style: const TextStyle(fontSize: 18),),
               ],
             ),
             const SizedBox(height: 16),

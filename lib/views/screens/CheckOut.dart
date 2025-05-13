@@ -79,7 +79,7 @@ class _CheckoutState extends State<Checkout> {
               if (!_formKey.currentState!.validate()) {
                 return;
               }
-              _formKey.currentState!.save(); 
+              _formKey.currentState!.save();
             }
             if (_currentStep < 2) {
               setState(() => _currentStep += 1);
@@ -155,8 +155,8 @@ class _CheckoutState extends State<Checkout> {
                     },
                   ),
                   RadioListTile<String>(
-                    title: const Text('Cash on Delivery'),
-                    value: 'Cash on Delivery',
+                    title: const Text('Electronic wallets'),
+                    value: 'Electronic Wallet',
                     groupValue: _paymentMethod,
                     activeColor: _primaryColor,
                     onChanged: (value) {

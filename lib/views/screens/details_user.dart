@@ -12,13 +12,8 @@ class DetailsUser extends StatefulWidget {
 }
 
 class _DetailsUserState extends State<DetailsUser> {
-
-
   late User? user;
   String phone = '';
-  String? gender;
-
-
 
   @override
   void initState() {
@@ -32,15 +27,15 @@ class _DetailsUserState extends State<DetailsUser> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Color(0xff763498),
+        backgroundColor: const Color(0xff763498),
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'User Details',
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
       body: Container(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -65,7 +60,7 @@ class _DetailsUserState extends State<DetailsUser> {
                   ),
               ],
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -81,47 +76,15 @@ class _DetailsUserState extends State<DetailsUser> {
               ],
             ),
 
-            SizedBox(height: 20),
-
-            Text("Gender", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            Row(
-              children: [
-                Radio<String>(
-                  value: 'Male',
-                  groupValue: gender,
-                  onChanged: (value) {
-                    setState(() {
-                      gender = value;
-                    });
-                  },
-                ),
-                Text('Male' ,style: TextStyle(fontSize: 18)),
-                SizedBox(width: 10),
-                Radio<String>(
-                  value: 'Female',
-                  groupValue: gender,
-                  onChanged: (value) {
-                    setState(() {
-                      gender = value;
-                    });
-                  },
-                ),
-                Text('Female' , style: TextStyle(fontSize: 18)),
-              ],
-            ),
-            SizedBox(height: 10),
-
-
-            SizedBox(height: 30,),
+            const SizedBox(height: 30),
 
             SizedBox(
               width: double.infinity,
-              child:
-              InkWell(
+              child: InkWell(
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => SignIn(),
+                      builder: (context) =>  SignIn(),
                     ),
                   );
                 },
@@ -130,10 +93,10 @@ class _DetailsUserState extends State<DetailsUser> {
                   height: 50,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Color(0xff763498),
+                    color: const Color(0xff763498),
                   ),
-                  margin: EdgeInsets.symmetric(horizontal: 20),
-                  child: Center(
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: const Center(
                     child: Text(
                       'Log Out',
                       style: TextStyle(color: Colors.white, fontSize: 20),

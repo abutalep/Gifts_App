@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gifts_app/cart_manager.dart';
 import 'package:gifts_app/views/screens/CheckOut.dart';
+import 'package:gifts_app/views/screens/homePage.dart';
 
 
 class ShoppingCart extends StatelessWidget {
@@ -30,7 +31,10 @@ class ShoppingCart extends StatelessWidget {
             leading: IconButton(
               icon: const Icon(Icons.arrow_back),
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
               },
             ),
           ),

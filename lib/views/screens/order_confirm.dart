@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gifts_app/views/screens/order_details.dart';
 import 'package:gifts_app/views/screens/order_tracking.dart';
 
 class OrderConfirm extends StatefulWidget {
@@ -9,14 +10,25 @@ class OrderConfirm extends StatefulWidget {
 }
 
 class _OrderConfirmState extends State<OrderConfirm> {
+  String phone = '';
   final Color _primaryColor = const Color(0xFF9C27B0);
-  final String _phoneNumber = '';
+  String _orderNumber = DateTime.now().millisecondsSinceEpoch.toString().substring(6);
+  String _trackingNumber = 'TRK${DateTime.now().millisecondsSinceEpoch.toString().substring(8)}';
 
+  @override
+  void initState() {
+    super.initState();
+    phone = OrderDetails.savedPhone;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: IconThemeData(color: _primaryColor),
+      ),
       body: Container(
         padding: EdgeInsets.only(top: 200),
         child: Column(
@@ -24,38 +36,45 @@ class _OrderConfirmState extends State<OrderConfirm> {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
-              Icons.check_circle,
-              color: _primaryColor,
-              size: 60,
-            ),
+            Icon(Icons.check_circle, color: _primaryColor, size: 60),
             const SizedBox(height: 16),
             const Text(
               'Order Completed Successfully',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             Text(
-                'Order Number: #${DateTime.now().millisecondsSinceEpoch.toString().substring(6)}',
-                style: const TextStyle(fontSize: 16)),
+              'Order Number: #$_orderNumber',
+              style: const TextStyle(fontSize: 16),
+            ),
             const SizedBox(height: 16),
-            Text(
-              'We will contact you on: $_phoneNumber',
-              style: const TextStyle(fontSize: 14),
-              textAlign: TextAlign.center,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Text(
+                  'We will contact you on:  ',
+                  style: TextStyle(fontSize: 14),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  phone.isNotEmpty ? phone : "not found",
+                  style: const TextStyle(fontSize: 14),
+                ),
+              ],
             ),
             const SizedBox(height: 24),
             SizedBox(
               width: double.infinity,
-              child:
-              InkWell(
+              child: InkWell(
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => OrderTracking(),
+                      builder: (context) => OrderTracking(
+                        deliveryAddress: OrderDetails.savedAddress,
+                        orderNumber: _orderNumber,
+                        trackingNumber: _trackingNumber,
+                      ),
                     ),
                   );
                 },
@@ -69,7 +88,7 @@ class _OrderConfirmState extends State<OrderConfirm> {
                   margin: EdgeInsets.symmetric(horizontal: 20),
                   child: Center(
                     child: Text(
-                      'Tracking Order',
+                      'Track Order',
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                   ),
